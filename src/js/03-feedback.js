@@ -26,7 +26,8 @@ if (data) {
 }
 
 function saveData(key, value) {
-
+    data[key] = value;
+    localStorage.setItem(FEEDBACK_FROM_STATE, JSON.stringify(data));
 }
 
 form.addEventListener('input', throttle(onInputForm, THROTTLE_TIME)) ||  {};
