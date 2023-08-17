@@ -7,7 +7,9 @@ const THROTTLE_TIME = 1000;
 const vimeoPlayer = document.querySelector('#vimeo-player');
 const player = new Vimeo(vimeoPlayer);
 
-player.setCurrentTime(parseInt(localStorage.getItem(CURRENT_TIME), 10));
+player.setCurrentTime(parseInt(localStorage.getItem(CURRENT_TIME), 10))
+.then(seconds => console.log(`${seconds}`))
+.catch(error => console.log(`${error}`));
 
 const onPlay = currentTime => {
     player.getEnded().then(end => {
